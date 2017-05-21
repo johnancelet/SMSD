@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>asd</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th>NO</th>
+        <th>enggone click</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#inboxes}}
+    <tr>
+        <td id="id">{{textdecoded}}</td>
+        <td>
+            <button data-id="{{textdecoded}}" data-toggle="modal" data-target="#modal-container-593333" type="button" name="button"
+                    class="btn btn-danger">click
+            </button>
+        </td>
+    </tr>
+    {{/inboxes}}
+    </tbody>
+</table>
+<div class="modal fade" id="modal-container-593333" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> ×</button>
+                <h4 class="modal-title" id="myModalLabel"> Modal title </h4></div>
+            <div class="modal-body"> ...</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"> Close</button>
+                <button type="button" class="btn btn-primary"> Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>       $("#modal-container-593333").on("show.bs.modal", function (e) {
+    var id = $(e.relatedTarget).data("id");
+    $(".modal-body").html("<h1>" + id + "</h1>");
+})
+</script>
+</body>
+</html>
