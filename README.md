@@ -2,7 +2,7 @@
 ### Build with Spark Java & Mysql
 ### Build Status
 [![Build 
-Status](https://api.travis-ci.org/winnerawan/SMSD.svg?branch=master)](https://travis-ci.org/winnerawan/api_gammu_android)
+Status](https://api.travis-ci.org/winnerawan/SMSD.svg?branch=master)](https://travis-ci.org/winnerawan/SMSD)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 ## License 
