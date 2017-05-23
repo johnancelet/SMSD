@@ -3,6 +3,7 @@ package app.controller;
 import app.model.*;
 import app.service.Service;
 import app.util.JsonUtil;
+import app.util.Path;
 import app.util.ServerResponse;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.helper.StringHelpers;
@@ -35,6 +36,8 @@ public class ServiceController {
 
     public ServiceController(Service service) {
 
+        /** -------------- CHECK SESSION ----------------*/
+
         before("/admin/index", (request, response) -> {
             User user = getAuthenticatedUser(request);
             if (user == null) {
@@ -62,6 +65,8 @@ public class ServiceController {
                 response.redirect("/admin");
             }
         });
+
+
         /**
          * JSON
          * Mobile Version
@@ -72,7 +77,7 @@ public class ServiceController {
             return JsonUtil.toJson(service.api_version());
         });
 
-        post("/register", (request, response) -> {
+        post(Path.URL_API_REGISTER, (request, response) -> {
             //String user_id = request.queryParams(":user_id");
             response.type("application/json");
             String username = request.queryParams("username");
@@ -82,7 +87,7 @@ public class ServiceController {
             return JsonUtil.toJson(service.api_register(username, email, encodePassword));
         });
 
-        post("/login", (request, response) -> {
+        post(Path.URL_API_LOGIN, (request, response) -> {
             response.type("application/json");
             String email = request.queryParams("email");
             String password = request.queryParams("password");
